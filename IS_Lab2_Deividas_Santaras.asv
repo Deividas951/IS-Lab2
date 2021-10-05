@@ -1,0 +1,6 @@
+% Data preperation
+x = [0.1:1/22:1];
+d =  (2 + 0.3*cos(2*pi*x/0.2)) + 0.5*sin(4*pi*x + 2)./3;
+figure(1), plot(x, d), grid on;
+w11_1
+w21
