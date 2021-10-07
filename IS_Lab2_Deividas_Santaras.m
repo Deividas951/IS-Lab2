@@ -18,8 +18,8 @@ w13_2 = randn(1);
 w14_2 = randn(1);
 b1_2 = randn(1);
 cycle = 0;
-n = 0.1;
-% Network's response
+n = 0.2;
+%% Network's response
 for indx = 1:length(x)
     v1_1 = x(indx)* w11_1 + b1_1;
     v2_1 = x(indx)* w21_1 + b2_1;
@@ -36,17 +36,17 @@ for indx = 1:length(x)
 %     v2_3 = y3_1.*w13_2+b1_2;
 %     v2_4 = y4_1.*w14_2+b1_2;
     % Output Activation function
-    y1_2 = 3*v1_2+9; 
+    y1_2 = 3*v1_2+2; 
     % Error calculation
     y = y1_2;
     e = d(indx) - y;
     % Error output layer gradient calculation
     delta1_2 = 3*e;
     % Error hidden layer gradient calculation
-    delta1_1 = 3.*delta1_2.*w11_2;
-    delta2_1 = 3.*delta1_2.*w12_2;
-    delta3_1 = 3.*delta1_2.*w13_2;
-    delta4_1 = 3.*delta1_2.*w14_2;
+    delta1_1 = (1-(tanh(y1_1))^2)*delta1_2.*w11_2;
+    delta2_1 = (1-(tanh(y2_1))^2)*w12_2;
+    delta3_1 = (1-(tanh(y3_1))^2)*w13_2;
+    delta4_1 = (1-(tanh(y4_1))^2)*w14_2;
    % Update output layer weights
     w11_2 = w11_2 + n.*delta1_2.*y1_1;
     w12_2 = w12_2 + n.*delta1_2.*y2_1;
@@ -67,7 +67,7 @@ for indx = 1:length(x)
    
 end
 cycle2 = 0;
-Y = zeros(1,length(x));
+%% Y = zeros(1,length(x));
 for indx = 1:length(x)
     v1_1 = x(indx)* w11_1 + b1_1;
     v2_1 = x(indx)* w21_1 + b2_1;
