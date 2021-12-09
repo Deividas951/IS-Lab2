@@ -3,8 +3,8 @@ clear all
 % Data preperation
 x = (0.1:1/22:1);
 d = (1 + 1.5*sin(3*pi*x/2)) + 2.5*sin(2.8*pi*x)/0.5;
-% More difficult function below, 4 neurons are not enough for full
-% approximation.
+% Sudetingesne funkcija, 4 neuronu neuztenka, kad pilnai aproksimuotu
+% kreive.
 % x = [0.1:1/152:1];
 % d =  ((2 + 0.3*cos(2*pi*x/0.2)) + 0.5*sin(4*pi*x + 2)./9)+2;
 figure(1), plot(x, d, 'r*'), grid on;
@@ -27,7 +27,7 @@ w14_2 = randn(1);
 w15_2 = randn(1);
 b1_2 = randn(1);
 cycle = 0;
-n = 0.002;
+n = 0.03;
 %% Network's response
 for ind = 1:100000;
 for indx = 1:length(x)
